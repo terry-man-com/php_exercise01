@@ -18,15 +18,15 @@ class Taxi extends Car
 
     public function pickUp($passenger)
     {
-        $this->passenger = strval($passenger);
-        return $this->passenger . "人乗車しました" . "\n";
-        $this->passenger = $this->passenger + $passenger;
+        $this->passenger += strval($passenger);
+        return $passenger . "人乗車しました" . "\n";
     }
 
     public function lower($passenger)
     {
         if($this->passenger - $passenger >= 0)
         {
+            $this->passenger -= strval($passenger);
             return $passenger . "人降車しました\n";
         } else {
             return $passenger . "人降車できません\n";
@@ -40,5 +40,4 @@ class Taxi extends Car
             "カラー：" . $this->color . "\n" .
             "乗車人数：" . $this->passenger . "人\n";
     }
-
 }
